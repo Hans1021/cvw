@@ -294,6 +294,13 @@ BPRED_SIZE          32'd14
 deriv bpred_GSHARE_16_16_10_1_rv32gc rv32gc
 BPRED_SIZE          32'd16
 
+deriv bpred_GSHARE_LLM_10_16_10_0_rv32gc rv32gc
+BPRED_TYPE          `BP_GSHARE_LLM
+BPRED_SIZE          32'd10
+RAS_SIZE            32'd16
+BTB_SIZE            32'd10
+INSTR_CLASS_PRED    0
+
 deriv bpred_TWOBIT_6_16_10_1_rv32gc bpred_GSHARE_6_16_10_1_rv32gc
 BPRED_TYPE          `BP_TWOBIT
 

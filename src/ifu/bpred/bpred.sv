@@ -106,6 +106,19 @@ module bpred import cvw::*;  #(parameter cvw_t P) (
       .BPBranchF, .BranchD, .BranchE, .BranchM, .BranchW,
       .PCSrcE);
 
+  end else if (P.BPRED_TYPE == `BP_GSHARE_LLM) begin : Predictor
+    gshare_llm #(
+      .XLEN(P.XLEN),
+      .K(P.BPRED_SIZE)
+    ) DirPredictor(
+      .clk, .reset,
+      .StallF, .StallD, .StallE, .StallM, .StallW,
+      .FlushD, .FlushE, .FlushM, .FlushW,
+      .PCNextF, .PCF, .PCD, .PCE, .PCM,
+      .BPBranchF, .BranchD, .BranchE, .BranchM, .BranchW,
+      .PCSrcE,
+      .BPDirF, .BPDirWrongE);
+
   end else if (P.BPRED_TYPE == `BP_GLOBAL) begin : Predictor
     gshare #(P, P.XLEN, P.BPRED_SIZE, 0) DirPredictor(.clk, .reset, .StallF, .StallD, .StallE, .StallM, .StallW, .FlushD, .FlushE, .FlushM, .FlushW,
       .PCNextF, .PCF, .PCD, .PCE, .PCM, .BPDirF, .BPDirWrongE,
