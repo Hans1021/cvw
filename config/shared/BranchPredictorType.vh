@@ -7,3 +7,4 @@
 `define BP_LOCAL_AHEAD  (32'd6)
 `define BP_LOCAL_REPAIR (32'd7)
 `define BP_GSHARE_LLM   (32'd8)
+`define BP_OGEHL_LLM   (32'd9)
